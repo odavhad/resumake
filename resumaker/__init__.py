@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 
 from .settings import ENV_VAR
 
@@ -20,6 +20,6 @@ def create_app():
 
     @app.route('/')
     def index():
-        return "<h1>Hello, world!</h1>"
+        return render_template('base.html')
 
     return app
