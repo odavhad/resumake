@@ -21,8 +21,11 @@ def create_app():
     from . import db
     db.init_app(app)
 
+    from .routes.auth import auth_bp
+    app.register_blueprint(auth_bp)
+
     @app.route('/')
     def index():
-        return render_template('base.html')
+        return render_template('home.html')
 
     return app

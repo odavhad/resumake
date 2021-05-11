@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><strong>ResuMake</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="{{ url_for('auth.signin') }}">
+                    <button type="button" class="btn btn-outline-primary">Sign In</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="position-relative" style="margin-top: 20%;">
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="card" style="width: 32rem;">
+            <div class="card-header h3">Sign Up</div>
+            <div class="card-body">
+                <form action="{{ url_for('auth.signup') }}" method="POST">
+                    <div class="form-group row">
+                        <label for="username" class="col-sm-5 col-form-label">Username:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username"
+                                required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-5 col-form-label">Password:</label>
+                        <div class="col-sm-7">
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="Password" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="confirm_password" class="col-sm-5 col-form-label">Confirm Password:</label>
+                        <div class="col-sm-7">
+                            <input type="password" class="form-control" name="confirm_password" id="confirm_password"
+                                placeholder="Confirm Password" required>
+                        </div>
+                    </div>
+                    <br>
+                    {% if error %}
+                    <div class="form-group row text-danger">
+                        <div class="col-sm-5"></div>
+                        <div class="col-sm-7">
+                            {{ error }}
+                        </div>
+                    </div>
+                    <br>
+                    {% endif %}
+                    <div class="form-group row">
+                        <div class="col-sm-5"></div>
+                        <div class="col-sm-7">
+                            <input type="submit" class="btn btn-outline-success" value="Sign Up">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                If already registered, <a href="{{ url_for('auth.signin') }}">&nbsp;Sign In</a> &nbsp;here.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

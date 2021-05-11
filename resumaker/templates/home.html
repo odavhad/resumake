@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><strong>ResuMake</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('index') }}">Home</a>
+                </li>
+            </ul>
+            {% if g.user %}
+            <div class="auth-buttons">
+                <a href="{{ url_for('auth.signout')  }}">
+                    <button type="button" class="btn btn-outline-danger">Sign Out</button>
+                </a>
+            </div>
+            {% else %}
+            <div class="auth-buttons">
+                <a href="{{ url_for('auth.signin')  }}">
+                    <button type="button" class="btn btn-outline-primary">Sign In</button>
+                </a>
+                <a href="{{ url_for('auth.signup')  }}">
+                    <button type="button" class="btn btn-outline-success">Sign Up</button>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<h1 class="h1">Home Page</h1>
+{% endblock %}
