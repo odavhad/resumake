@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, url_for
-from resumaker.models import User
+from resumake.models import User
 
 remove_bp = Blueprint('remove', __name__, url_prefix='/remove')
 

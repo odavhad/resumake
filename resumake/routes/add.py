@@ -1,6 +1,6 @@
 from flask import Blueprint, redirect, render_template, request, url_for
-from resumaker.models import Education, Experience, Project, Publication, User
-from resumaker.routes.auth import login_required
+from resumake.models import Education, Experience, Project, Publication, User
+from resumake.routes.auth import login_required
 
 add_bp = Blueprint('add', __name__, url_prefix='/add')
 

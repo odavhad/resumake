@@ -3,8 +3,8 @@ from json import dumps
 
 from flask import (Blueprint, g, redirect, render_template, request, session,
                    url_for)
-from resumaker.db import get_db
-from resumaker.models import User
+from resumake.db import get_db
+from resumake.models import User
 from werkzeug.security import check_password_hash, generate_password_hash
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')

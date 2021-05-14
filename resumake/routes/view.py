@@ -2,9 +2,9 @@ from json import loads
 
 from flask import (Blueprint, redirect, render_template, request, session,
                    url_for)
-from resumaker.db import get_db
-from resumaker.models import Config, General, User
-from resumaker.routes.auth import login_required
+from resumake.db import get_db
+from resumake.models import Config, General, User
+from resumake.routes.auth import login_required
 
 view_bp = Blueprint('view', __name__, url_prefix='/')
 
