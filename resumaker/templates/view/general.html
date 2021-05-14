@@ -1,0 +1,111 @@
+{% extends 'view/base.html' %}
+
+{% block view %}
+<div class="form-div" style="padding-top: 8%; padding-bottom: 8%;">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="h2">General Information</h2>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="{{ url_for('view.general') }}" method="POST">
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="name" class="col-sm-3 col-form-label">Name:</label>
+                        <div class="col-sm-5">
+                            {% if gen %}
+                            <input type="text" class="form-control" name="name" id="name" value="{{ gen.name }}"
+                                required>
+                            {% else %}
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="phone" class="col-sm-3 col-form-label">Phone:</label>
+                        <div class="col-sm-3">
+                            {% if gen %}
+                            <input type="text" class="form-control" name="phone" id="phone" value="{{ gen.phone }}"
+                                required>
+                            {% else %}
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone"
+                                required>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="email" class="col-sm-3 col-form-label">Email:</label>
+                        <div class="col-sm-5">
+                            {% if gen %}
+                            <input type="email" class="form-control" name="email" id="email" value="{{ gen.email }}"
+                                required>
+                            {% else %}
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                required>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="website" class="col-sm-3 col-form-label">Website:</label>
+                        <div class="col-sm-7">
+                            {% if gen %}
+                            <input type="url" class="form-control" name="website" id="website" value="{{ gen.website }}"
+                                required>
+                            {% else %}
+                            <input type="url" class="form-control" name="website" id="website" placeholder="Website"
+                                required>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="linkedin" class="col-sm-3 col-form-label">Linkedin:</label>
+                        <div class="col-sm-7">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <div class="input-group-text" id="btnGroupAddon">https://www.linkedin.com/</div>
+                                </div>
+                                {% if gen %}
+                                <input type="text" name="linkedin" id="linkedin" class="form-control"
+                                    value="{{ gen.linkedin }}" required>
+                                {% else %}
+                                <input type="text" name="linkedin" id="linkedin" class="form-control"
+                                    placeholder="Linked Username" required>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="summary" class="col-sm-3 col-form-label">Summary:</label>
+                        <div class="col-sm-7">
+                            {% if gen %}
+                            <textarea class="form-control" name="summary" id="summary"
+                                rows="2">{{ gen.summary }}</textarea>
+                            {% else %}
+                            <textarea class="form-control" name="summary" id="summary" rows="2"
+                                placeholder="Summary"></textarea>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-3">
+                            <input type="submit" class="btn btn-outline-secondary" value="Update">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

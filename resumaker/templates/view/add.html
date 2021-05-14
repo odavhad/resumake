@@ -1,0 +1,37 @@
+{% extends 'view/base.html' %}
+
+{% block view %}
+<div class="form-div" style="padding-top: 8%; padding-bottom: 8%;">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="h2">Add New Field</h2>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="{{ url_for('view.add') }}" method="POST">
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="field" class="col-sm-3 col-form-label">Add Field:</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="field" id="field">
+                                <option value="default" selected>Select Field</option>
+                                <option value="edu">Education Field</option>
+                                <option value="exp">Experience Field</option>
+                                <option value="pro">Project Field</option>
+                                <option value="pub">Publication Field</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-3">
+                            <input type="submit" class="btn btn-outline-secondary" value="Add">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

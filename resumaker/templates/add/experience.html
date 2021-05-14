@@ -1,0 +1,76 @@
+{% extends 'add/base.html' %}
+
+{% block add %}
+<div class="form-div" style="padding-top: 8%; padding-bottom: 8%;">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="h2">Add Experience Field</h2>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="{{ url_for('add.experience') }}" method="POST">
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="workplace" class="col-sm-3 col-form-label">Workplace:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="workplace" id="workplace"
+                                placeholder="Workplace Name" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="title" class="col-sm-3 col-form-label">Experience Title:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="title" id="title"
+                                placeholder="Experience Title" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="start" class="col-sm-3 col-form-label">Start Date:</label>
+                        <div class="col-sm-3">
+                            <input type="date" class="form-control" name="start" id="start" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="end" class="col-sm-3 col-form-label">End Date:</label>
+                        <div class="col-sm-3">
+                            <input type="date" class="form-control" name="end" id="end" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="description" class="col-sm-3 col-form-label">Description:</label>
+                        <div class="col-sm-6">
+                            <!-- <input type="text" class="form-control" name="description" id="description" required> -->
+                            <textarea class="form-control" name="description" id="description" rows="4"
+                                placeholder="Description Format:&#10;Point 1&#10;Point 2"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-6">
+                            <!-- <input type="text" class="form-control" name="description" id="description" required> -->
+                            <small id="descriptionHelp" class="form-text text-muted">
+                                Enter the points of your description in different lines
+                            </small>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-3">
+                            <input type="submit" class="btn btn-outline-secondary" value="Add">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

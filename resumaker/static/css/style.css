@@ -1,6 +1,17 @@
 body {
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-top: 2%;
-    font-family: 'Roboto', sans-serif;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 2%;
+  font-family: "Roboto", sans-serif;
+}
+
+.text-gray {
+  color: rgb(148, 133, 133);
+  text-transform: uppercase;
+  font-size: 90%;
+}
+
+.text-dark {
+  padding-top: 1%;
+  padding-bottom: 1%s;
 }

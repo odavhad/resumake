@@ -1,0 +1,93 @@
+{% extends 'view/base.html' %}
+
+{% block view %}
+<div class="form-div" style="padding-top: 8%; padding-bottom: 8%;">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h2 class="h2">Project Fields</h2>
+                </div>
+                <div class="col-sm-3">
+                    <a href="{{ url_for('add.project') }}">
+                        <button type="button" class="btn btn-outline-secondary">Add Project Field</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="{{ url_for('view.project') }}" method="POST">
+                    {% for pro in pros %}
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Project Title:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" readonly value="{{ pro.title }}">
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1">
+                            <a href="{{ url_for('remove.project', index=loop.index0) }}">
+                                <button type="button" class="btn btn-outline-danger">
+                                    <span>
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Project Subtitle:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" readonly value="{{ pro.subtitle }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Link:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" readonly value="{{ pro.link }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Start Date:</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" readonly value="{{ pro.start }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">End Date:</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" readonly value="{{ pro.end }}">
+                        </div>
+                    </div>
+                    {% if pro.description != None %}
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="description" class="col-sm-3 col-form-label">Description:</label>
+                        <div class="col-sm-6">
+                            <ul class="list-group list-group-flush">
+                                {% for des in pro.description %}
+                                <li class="list-group-item">{{ des }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <hr>
+                    <br>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

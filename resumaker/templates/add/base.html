@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><strong>ResuMake</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('index') }}">Home</a>
+                </li>
+            </ul>
+            {% if g.user %}
+            <div class="auth-buttons">
+                <a href="{{ url_for('auth.signout')  }}">
+                    <button type="button" class="btn btn-outline-danger">Sign Out</button>
+                </a>
+            </div>
+            {% else %}
+            <div class="auth-buttons">
+                <a href="{{ url_for('auth.signin')  }}">
+                    <button type="button" class="btn btn-outline-primary">Sign In</button>
+                </a>
+                <a href="{{ url_for('auth.signup')  }}">
+                    <button type="button" class="btn btn-outline-success">Sign Up</button>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="row" style="padding-top: 4%;">
+    <div class="col-3">
+        <nav class="navbar">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ url_for('view.add') }}" class="nav-link text-gray">Add New Field</a>
+                </li>
+                <hr>
+                <li class="nav-item">
+                    <a href="{{ url_for('view.config') }}" class="nav-link text-gray">Configuration</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('view.general') }}" class="nav-link text-gray">General</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('view.education') }}" class="nav-link text-gray">Education</a>
+                </li>
+                {% if data %}
+                {% if data.educations|length > 0 %}
+                {% for edu in data.educations %}
+                <li class="nav-item" style="padding-left: 3%;">
+                    <a href="" class="nav-link text-dark">{{ edu.title }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+                <li class="nav-item">
+                    <a href="{{ url_for('view.experience') }}" class="nav-link text-gray">Experiences</a>
+                </li>
+                {% if data %}
+                {% if data.experiences|length > 0 %}
+                {% for exp in data.experiences %}
+                <li class="nav-item" style="padding-left: 3%;">
+                    <a href="" class="nav-link text-dark">{{ exp.title }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+                <li class="nav-item">
+                    <a href="{{ url_for('view.project') }}" class="nav-link text-gray">Projects</a>
+                </li>
+                {% if data %}
+                {% if data.projects|length > 0 %}
+                {% for pro in data.projects %}
+                <li class="nav-item" style="padding-left: 3%;">
+                    <a href="" class="nav-link text-dark">{{ pro.title }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+                <li class="nav-item">
+                    <a href="{{ url_for('view.publication') }}" class="nav-link text-gray">Publications</a>
+                </li>
+                {% if data %}
+                {% if data.publications|length > 0 %}
+                {% for pub in data.publications %}
+                <li class="nav-item" style="padding-left: 3%;">
+                    <a href="" class="nav-link text-dark">{{ pub.title }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% endif %}
+                <li class="nav-item">
+                    <a href="{{ url_for('view.skills') }}" class="nav-link text-gray">Skills</a>
+                </li>
+                <hr>
+                <button type="button" class="btn btn-outline-dark">Generate</button>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-9">
+        {% block add %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

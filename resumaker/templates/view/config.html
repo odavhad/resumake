@@ -1,0 +1,67 @@
+{% extends 'view/base.html' %}
+
+{% block view %}
+<div class="form-div" style="padding-top: 8%; padding-bottom: 8%;">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="h2">Configuration</h2>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="{{ url_for('view.config') }}" method="POST">
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="font" class="col-sm-3 col-form-label">Font Size:</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="font" id="font">
+                                {% if conf.fontsize == 11 %}
+                                <option value="11" selected>Small</option>
+                                <option value="12">Medium</option>
+                                {% else %}
+                                <option value="11">Small</option>
+                                <option value="12" selected>Medium</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="horizontal" class="col-sm-3 col-form-label">Horizontal Margin:</label>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" name="horizontal" id="horizontal" class="form-control"
+                                    value="{{ conf.margin.left }}" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text" id="btnGroupAddon">inch</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label for="vertical" class="col-sm-3 col-form-label">Vertical Margin:</label>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" name="vertical" id="vertical" class="form-control"
+                                    value="{{ conf.margin.top }}" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-text" id="btnGroupAddon">inch</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-3">
+                            <input type="submit" class="btn btn-outline-secondary" value="Update">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

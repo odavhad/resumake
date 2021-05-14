@@ -1,0 +1,53 @@
+{% extends 'view/base.html' %}
+
+{% block view %}
+<div class="form-div" style="padding-top: 8%; padding-bottom: 8%;">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h2 class="h2">Skills</h2>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="{{ url_for('view.skills') }}" method="POST">
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Add Skill:</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="skill" id="skill" placeholder="Skill">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-3">
+                            <input type="submit" class="btn btn-outline-secondary" value="Add">
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <hr>
+                <div class="container">
+                    {% for skill in skills %}
+                    <div class="btn-group sm-2"
+                        style="padding-top: 1.5%; padding-bottom: 1.5%; padding-left: 1%; padding-right: 1%;">
+                        <button type="button" class="btn btn-outline-primary active">{{ skill }}</button>
+                        <a href="{{ url_for('remove.skill', index=loop.index0) }}">
+                            <button type="button" class="btn btn-outline-danger">
+                                <span>
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                            </button>
+                        </a>
+                        &nbsp;&nbsp;
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

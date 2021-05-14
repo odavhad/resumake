@@ -1,0 +1,71 @@
+{% extends 'view/base.html' %}
+
+{% block view %}
+<div class="form-div" style="padding-top: 8%; padding-bottom: 8%;">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h2 class="h2">Publication Fields</h2>
+                </div>
+                <div class="col-sm-3">
+                    <a href="{{ url_for('add.publication') }}">
+                        <button type="button" class="btn btn-outline-secondary">Add Publication Field</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="{{ url_for('view.publication') }}" method="POST">
+                    {% for pub in pubs %}
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Research Title:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" readonly value="{{ pub.title }}">
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1">
+                            <a href="{{ url_for('remove.publication', index=loop.index0) }}">
+                                <button type="button" class="btn btn-outline-danger">
+                                    <span>
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Journal Name:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" readonly value="{{ pub.journal }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Publication Link:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" readonly value="{{ pub.link }}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="col-sm-3 col-form-label">Date:</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" readonly value="{{ pub.date }}">
+                        </div>
+                    </div>
+                    <hr>
+                    <br>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
