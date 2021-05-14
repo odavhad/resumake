@@ -1,10 +1,12 @@
 from flask import Blueprint, redirect, url_for
 from resumake.models import User
+from resumake.routes.auth import login_required
 
 remove_bp = Blueprint('remove', __name__, url_prefix='/remove')
 
 
 @remove_bp.route('/education/<int:index>', methods=('GET', 'POST'))
+@login_required
 def education(index):
     user = User()
 
@@ -15,6 +17,7 @@ def education(index):
 
 
 @remove_bp.route('/experience/<int:index>', methods=('GET', 'POST'))
+@login_required
 def experience(index):
     user = User()
 
@@ -25,6 +28,7 @@ def experience(index):
 
 
 @remove_bp.route('/project/<int:index>', methods=('GET', 'POST'))
+@login_required
 def project(index):
     user = User()
 
@@ -35,6 +39,7 @@ def project(index):
 
 
 @remove_bp.route('/publication/<int:index>', methods=('GET', 'POST'))
+@login_required
 def publication(index):
     user = User()
 
@@ -45,6 +50,7 @@ def publication(index):
 
 
 @remove_bp.route('/skill/<int:index>', methods=('GET', 'POST'))
+@login_required
 def skill(index):
     user = User()
 
