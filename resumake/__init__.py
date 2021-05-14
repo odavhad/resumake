@@ -37,7 +37,7 @@ def create_app():
     @app.route('/')
     def index():
         if session.get('user_id') is not None:
-            return redirect(url_for('view.config'))
+            return redirect(url_for('view.general'))
 
         return render_template('home.html')
 
