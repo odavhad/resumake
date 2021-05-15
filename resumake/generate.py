@@ -239,7 +239,7 @@ def get_skill(data):
         for i in range(len(data) - 1):
             skill_string += data[i] + ', ' 
 
-    skill_string += data[len(data) - 1]
+        skill_string += data[len(data) - 1]
 
     text = text.replace('{SKILLS}', skill_string)
 
