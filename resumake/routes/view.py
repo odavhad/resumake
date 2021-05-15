@@ -1,8 +1,9 @@
-from json import loads
+from os.path import join
 from urllib.parse import urlencode, urljoin
 
-from flask import (Blueprint, redirect, render_template, request, session,
-                   url_for)
+from flask import (Blueprint, current_app, redirect, render_template, request,
+                   session, url_for)
+from flask.helpers import send_file, send_from_directory
 from resumake.generate import get_tex_file
 from resumake.hash import get_hash
 from resumake.models import Config, General, User
@@ -132,7 +133,7 @@ def skills():
 @view_bp.route('/raw/<filename>')
 @login_required
 def raw_data(filename):
-    with open('instance/texfiles/{}.txt'.format(filename), 'r') as file:
+    with open('instance/texfiles/{}/main.tex'.format(filename), 'r') as file:
         text = file.read()
 
     file.close()

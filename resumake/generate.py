@@ -274,7 +274,14 @@ def get_tex_file():
     text += get_skill(user.data['skills'])
     text += get_footer()
 
-    with open('instance/texfiles/{}.txt'.format(get_hash(session.get('user_id'))), 'w') as file:
+    text = text.replace('&', '\&')
+
+    try:
+        os.mkdir('instance/texfiles/{}'.format(get_hash(session.get('user_id'))))
+    except OSError:
+        pass
+
+    with open('instance/texfiles/{}/main.tex'.format(get_hash(session.get('user_id'))), 'w') as file:
         file.write(text)
 
     file.close()
