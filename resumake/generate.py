@@ -235,8 +235,9 @@ def get_skill(data):
     file.close()
 
     skill_string = ""
-    for i in range(len(data) - 1):
-        skill_string += data[i] + ', '
+    if len(data) > 0:
+        for i in range(len(data) - 1):
+            skill_string += data[i] + ', ' 
 
     skill_string += data[len(data) - 1]
 
