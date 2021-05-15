@@ -1,0 +1,5 @@
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{ {TITLE} } \hfill {DATE}
+    \item[] \textit{ {JOURNAL} } \hfill [\href{{LINK}}]
+\end{itemize}
+\vspace{0.2cm}

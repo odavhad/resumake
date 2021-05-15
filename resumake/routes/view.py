@@ -1,10 +1,13 @@
 from json import loads
+from urllib.parse import urlencode, urljoin
 
 from flask import (Blueprint, redirect, render_template, request, session,
                    url_for)
-from resumake.db import get_db
+from resumake.generate import get_tex_file
+from resumake.hash import get_hash
 from resumake.models import Config, General, User
 from resumake.routes.auth import login_required
+from resumake.settings import ENV_VAR
 
 view_bp = Blueprint('view', __name__, url_prefix='/')
 
@@ -126,14 +129,35 @@ def skills():
     return render_template('view/skills.html', skills=user.data['skills'], data=user.data)
 
 
-@view_bp.route('/raw')
+@view_bp.route('/raw/<filename>')
 @login_required
-def rawData():
-    db = get_db()
-    id = session.get('user_id')
+def raw_data(filename):
+    with open('instance/texfiles/{}.txt'.format(filename), 'r') as file:
+        text = file.read()
 
-    data = db.execute(
-        'SELECT resume_data FROM user WHERE id = ?', (id,)
-    ).fetchone()['resume_data']
+    file.close()
 
-    return loads(data)
+    return render_template('file.html', content=text)
+
+
+@view_bp.route('generate')
+@login_required
+def generate():
+    user = User()
+    if user.data['general'] == None:
+        return redirect(url_for('view.general'))
+
+    get_tex_file()
+
+    param = {
+        'url': urljoin(
+            ENV_VAR['BASE_URL'],
+            url_for('view.raw_data', filename=get_hash(session.get('user_id')))
+        )
+    }
+
+    compile_base = "https://latexonline.cc/compile?"
+
+    url = compile_base + urlencode(param)
+
+    return redirect(url)

@@ -1,0 +1,4 @@
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{ {TITLE} } \hfill {START} - {END}
+    \item[] \textit{ {SUBTITLE} } \hfill [\href{{LINK}}]
+            \vspace{0.1cm}

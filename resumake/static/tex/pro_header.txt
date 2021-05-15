@@ -1,0 +1,3 @@
+\textbf{\MakeUppercase{Projects}}
+\vspace{0.1cm}
+\hrule

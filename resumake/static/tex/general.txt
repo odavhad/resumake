@@ -1,0 +1,16 @@
+\begin{center}
+    \textsc{\LARGE {NAME}}
+
+    {PHONE} $\diamond$ {EMAIL} \\
+    \href{ {WEBSITE} }{ {WEBSITE} } $\diamond$ \href{ {LINKEDIN} }{ {LINKEDIN} }
+\end{center}
+
+\vspace{0.2cm}
+\textbf{\MakeUppercase{Summary}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}
+    \item[] {SUMMARY}
+\end{itemize}
+\vspace{0.2cm}

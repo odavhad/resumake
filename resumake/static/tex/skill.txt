@@ -1,0 +1,7 @@
+\textbf{\MakeUppercase{Skills}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] {SKILLS}
+\end{itemize}

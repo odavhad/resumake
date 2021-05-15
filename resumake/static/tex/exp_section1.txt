@@ -1,0 +1,4 @@
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{ {WORKPLACE} } \hfill {START} - {END}
+    \item[] \textit{ {TITLE} } \hfill {}
+            \vspace{0.1cm}

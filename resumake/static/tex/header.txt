@@ -1,0 +1,16 @@
+\documentclass[letterpaper, {FONTSIZE}pt]{article}
+\usepackage[left={LEFT}in,top={TOP}in,right={LEFT}in,bottom={TOP}in]{geometry}
+\usepackage[parfill]{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\nofiles
+\pagestyle{empty}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue
+}
+
+\begin{document}

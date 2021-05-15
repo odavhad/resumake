@@ -1,0 +1,4 @@
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{ {SCHOOL} } \hfill {START} - {END}
+    \item[] \textit{ {TITLE} }
+            \vspace{0.1cm}

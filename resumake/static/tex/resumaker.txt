@@ -1,0 +1,117 @@
+\documentclass[letterpaper, 11pt]{article}
+\usepackage[left=0.6in,top=0.45in,right=0.6in,bottom=0.45in]{geometry}
+\usepackage[parfill]{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\nofiles
+\pagestyle{empty}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue
+}
+
+\begin{document}
+\begin{center}
+    \textsc{\LARGE Firstname Lastname}
+
+    9999999999 $\diamond$ email@xyz.abc \\
+    \href{link1.com}{link1.com} $\diamond$ \href{link2.com}{link2.com}
+\end{center}
+
+\vspace{0.2cm}
+\textbf{\MakeUppercase{Summary}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}
+    \item[] This is the summary of the resume.
+\end{itemize}
+\vspace{0.2cm}
+
+\textbf{\MakeUppercase{Education}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{School 1} \hfill Month Year - Month Year
+    \item[] \textit{Education title}
+          \vspace{0.1cm}
+    \item[$\cdot$] First point
+    \item[$\cdot$] Second point
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{\MakeUppercase{Experience}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{Experience 1} \hfill Month Year - Month Year
+    \item[] \textit{Experience title} \hfill {Place}
+          \vspace{0.1cm}
+    \item[$\cdot$] First point
+    \item[$\cdot$] Second point
+\end{itemize}
+
+\vspace{0.2cm}
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{Experience 2} \hfill Month Year - Month Year
+    \item[] \textit{Experience title} \hfill {Place}
+          \vspace{0.1cm}
+    \item[$\cdot$] First point
+    \item[$\cdot$] Second point
+\end{itemize}
+
+
+\vspace{0.2cm}
+
+\textbf{\MakeUppercase{Projects}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{Project 1} \hfill Month Year - Month Year
+    \item[] \textit{Technical Skills} \hfill [\href{link.com}{Link}]
+          \vspace{0.1cm}
+    \item[$\cdot$] First point
+    \item[$\cdot$] Second point
+\end{itemize}
+
+\vspace{0.2cm}
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{Project 2} \hfill Month Year - Month Year
+    \item[] \textit{Technical Skills} \hfill [\href{link.com}{Link}]
+          \vspace{0.1cm}
+    \item[$\cdot$] First point
+    \item[$\cdot$] Second point
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{\MakeUppercase{Publications}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] \textbf{Publication 1} \hfill Month Year
+    \item[] \textit{Publisher} \hfill [\href{link.com}{Link}]
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{\MakeUppercase{Skills}}
+\vspace{0.1cm}
+\hrule
+
+\begin{itemize}[noitemsep, nolistsep]
+    \item[] Skill 1, Skill 2, Skill 3, Skill 4, Skill 5, Skill 6, Skill 7, Skill 8, Skill 9, Skill 10
+\end{itemize}
+
+\end{document}
+

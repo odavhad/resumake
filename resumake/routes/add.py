@@ -62,6 +62,9 @@ def project():
         link = request.form.get('link')
         description = request.form.get('description')
 
+        if len(link) == 0:
+            link = None
+
         user = User()
         pro = Project(title, start, end, subtitle, link, description)
 

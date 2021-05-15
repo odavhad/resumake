@@ -1,0 +1,3 @@
+\textbf{\MakeUppercase{Education}}
+\vspace{0.1cm}
+\hrule
