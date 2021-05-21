@@ -1,4 +1,6 @@
 import os
+import webbrowser
+
 from urllib.parse import urlencode, urljoin
 
 from flask import (Blueprint, current_app, redirect, render_template, request,
@@ -162,4 +164,7 @@ def generate():
     url = compile_base + urlencode(param)
 
     # return redirect(url_for('view.raw_data', filename=get_hash(session.get('user_id'))))
-    return redirect(url)
+    # return redirect(url)
+    webbrowser.open_new_tab(url)
+
+    return redirect(url_for('view.general'))

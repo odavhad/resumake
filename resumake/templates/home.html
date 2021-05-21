@@ -36,5 +36,27 @@
 {% endblock %}
 
 {% block body %}
-<h1 class="h1">Home Page</h1>
+<div class="row">
+    <div class="col-sm-8">
+        <img src="{{ url_for('static', filename='images/resume.png') }}" alt="">
+    </div>
+    <div class="col-sm-4">
+        <div style="padding-top: 30%;"></div>
+        <p>This website aims to simplify the process of creating a clean resume using LaTeX.</p>
+        <br>
+        <p>The resume has the following sections:</p>
+        <ul>
+            <li>Personal Information</li>
+            <li>Summary</li>
+            <li>Education</li>
+            <li>Experience</li>
+            <li>Project</li>
+            <li>Publication</li>
+            <li>Skills</li>
+        </ul>
+        <br>
+        <br>
+        So, <a href="{{ url_for('auth.signup') }}">sign up</a> to create your resume now!
+    </div>
+</div>
 {% endblock %}
