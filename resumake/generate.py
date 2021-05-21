@@ -23,9 +23,13 @@ def get_path(filename):
 
 
 def get_link(link):
-    string = "}{link"
+    if link == None:
+        return ""
 
-    return link + string
+    string1 = "[\href{"
+    string2 = "}{link}]"
+
+    return (string1 + link + string2)
 
 
 def get_header(data):
@@ -68,6 +72,9 @@ def get_general(data):
 
 
 def get_education(data):
+    if not (len(data) > 0):
+        return ""
+
     edu_header_file = get_path('edu_header.txt')
 
     with open(edu_header_file, 'r') as file:
@@ -112,6 +119,9 @@ def get_education(data):
 
 
 def get_experience(data):
+    if not (len(data) > 0):
+        return ""
+
     exp_header_file = get_path('exp_header.txt')
 
     with open(exp_header_file, 'r') as file:
@@ -156,6 +166,9 @@ def get_experience(data):
 
 
 def get_project(data):
+    if not (len(data) > 0):
+        return ""
+
     pro_header_file = get_path('pro_header.txt')
 
     with open(pro_header_file, 'r') as file:
@@ -177,7 +190,7 @@ def get_project(data):
         temp = temp.replace('{START}', str(pro['start']))
         temp = temp.replace('{END}', str(pro['end']))
         temp = temp.replace('{SUBTITLE}', str(pro['subtitle']))
-        temp = temp.replace('{LINK}', get_link(pro['link']))
+        temp = temp.replace('{LINK}', get_link(pro.get('link')))
 
         if pro['description'] != None:
             for des in pro['description']:
@@ -201,6 +214,9 @@ def get_project(data):
 
 
 def get_publication(data):
+    if not (len(data) > 0):
+        return ""
+
     pub_header_file = get_path('pub_header.txt')
 
     with open(pub_header_file, 'r') as file:
@@ -227,6 +243,9 @@ def get_publication(data):
 
 
 def get_skill(data):
+    if not (len(data) > 0):
+        return ""
+
     skill_file = get_path('skill.txt')
 
     with open(skill_file, 'r') as file:
@@ -235,11 +254,11 @@ def get_skill(data):
     file.close()
 
     skill_string = ""
-    if len(data) > 0:
-        for i in range(len(data) - 1):
-            skill_string += data[i] + ', ' 
+    
+    for i in range(len(data) - 1):
+        skill_string += data[i] + ', ' 
 
-        skill_string += data[len(data) - 1]
+    skill_string += data[len(data) - 1]
 
     text = text.replace('{SKILLS}', skill_string)
 

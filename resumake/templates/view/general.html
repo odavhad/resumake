@@ -9,6 +9,15 @@
         <div class="card-body">
             <div class="container">
                 <form action="{{ url_for('view.general') }}" method="POST">
+                    {% if warning %}
+                    <div class="form-group row text-danger">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-7">
+                            {{ warning }}
+                        </div>
+                    </div>
+                    <br>
+                    {% endif %}
                     <div class="form-group row">
                         <div class="col-sm-1"></div>
                         <label for="name" class="col-sm-3 col-form-label">Name:</label>

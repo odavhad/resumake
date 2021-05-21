@@ -1,4 +1,4 @@
-from os.path import join
+import os
 from urllib.parse import urlencode, urljoin
 
 from flask import (Blueprint, current_app, redirect, render_template, request,
@@ -33,6 +33,9 @@ def general():
         return redirect(url_for('view.general'))
 
     user = User()
+
+    if (request.args.get('warning') != None):
+        return render_template('view/general.html', gen=user.data['general'], data=user.data, warning=request.args.get('warning'))
 
     return render_template('view/general.html', gen=user.data['general'], data=user.data)
 
@@ -131,14 +134,11 @@ def skills():
 
 
 @view_bp.route('/raw/<filename>')
-@login_required
 def raw_data(filename):
-    with open('instance/texfiles/{}/main.tex'.format(filename), 'r') as file:
-        text = file.read()
+    file = os.path.join(
+        os.getcwd(), 'instance/texfiles/{}/main.tex'.format(filename))
 
-    file.close()
-
-    return render_template('file.html', content=text)
+    return send_file(file)
 
 
 @view_bp.route('generate')
@@ -146,7 +146,7 @@ def raw_data(filename):
 def generate():
     user = User()
     if user.data['general'] == None:
-        return redirect(url_for('view.general'))
+        return redirect(url_for('view.general', warning="Please fill this information before generating the resume."))
 
     get_tex_file()
 
@@ -161,4 +161,5 @@ def generate():
 
     url = compile_base + urlencode(param)
 
+    # return redirect(url_for('view.raw_data', filename=get_hash(session.get('user_id'))))
     return redirect(url)
