@@ -164,7 +164,4 @@ def generate():
     url = compile_base + urlencode(param)
 
     # return redirect(url_for('view.raw_data', filename=get_hash(session.get('user_id'))))
-    # return redirect(url)
-    webbrowser.open_new_tab(url)
-
-    return redirect(url_for('view.general'))
+    return redirect(url)
