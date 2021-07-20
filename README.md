@@ -8,7 +8,7 @@ The website is deployed [here](http://resumake.pythonanywhere.com/).
 
 ![preview](preview/preview.gif)
 
-## [Sample Resume](preview/preview.gif)
+## [Sample Resume](preview/sample.pdf)
 
 ## Getting Started
 
