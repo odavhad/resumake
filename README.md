@@ -37,7 +37,7 @@ The website is deployed [here](http://resumake.pythonanywhere.com/).
 
    1. SECRET_KEY: This is used to sign session cookies of your Flask app.
    2. DATABASE: This is the name of your SQLite database. It will be stored in the _'instance'_ directory of your app.
-   3. BASE*URL: This is needed during the compilation part of the app. Note, the compilation part won't work until the app is running locally. Deploy the app online as the TEX file is served by the app and the *'https://latexonline.cc/'_ API fetches the data and returns the compiled PDF.
+   3. BASE*URL: This is needed during the compilation part of the app. Note, the compilation part won't work until the app is running locally. Deploy the app online as the TEX file is served by the app and the *'https://latexonline.cc/'* API fetches the data and returns the compiled PDF.
 
 5. Create _'resumake/hash.py'_ file and define a method _'get_hash'_.
 
